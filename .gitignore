@@ -1,0 +1,4 @@
+uploads/
+assets/audio/
+.env
+*.log
