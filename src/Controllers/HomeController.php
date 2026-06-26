@@ -2,10 +2,14 @@
 namespace Koinizate\Controllers;
 
 use Koinizate\Core\Auth;
+use Koinizate\Core\Response;
 
 class HomeController {
     public function index(): void {
-        $user = Auth::user();
-        require __DIR__ . '/../Views/home.php';
+        if (Auth::check()) {
+            Response::redirect('/dashboard');
+        } else {
+            Response::redirect('/login');
+        }
     }
 }
