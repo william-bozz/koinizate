@@ -566,6 +566,16 @@ function mostrarResumen() {
           </div>
           <p style="font-family:var(--sans);font-size:.75rem;color:var(--stone);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem">${IDIOMA==='es'?'Tu posición':IDIOMA==='en'?'Your position':IDIOMA==='pt'?'Sua posição':'Votre position'}</p>
           <div class="ranking-mini">${rankHtml}</div>
+          ${d.logros_nuevos && d.logros_nuevos.length > 0 ? `
+          <div style="background:rgba(201,168,76,.1);border:1px solid var(--gold);padding:1rem;margin-bottom:1rem;text-align:center">
+            <p style="font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem">
+              ${IDIOMA==='es'?'🏆 Logro desbloqueado':IDIOMA==='en'?'🏆 Achievement unlocked':IDIOMA==='pt'?'🏆 Conquista desbloqueada':'🏆 Succès débloqué'}
+            </p>
+            ${d.logros_nuevos.map(l => `
+              <div style="font-family:var(--serif);font-size:1.1rem;color:var(--egeo);font-weight:600">${l.nombre_griego}</div>
+              <div style="font-family:var(--sans);font-size:.82rem;color:var(--stone)">${l.nombre_es}</div>
+            `).join('')}
+          </div>` : ''}
           <a href="/curso/input-comprensible" class="btn-continuar">${IDIOMA==='es'?'Continuar al siguiente capítulo':IDIOMA==='en'?'Continue to next chapter':IDIOMA==='pt'?'Continuar para o próximo capítulo':'Continuer au chapitre suivant'} →</a>
           <button onclick="window.location.href='/leccion/<?= $capitulo['slug'] ?>'" class="btn-reintentar">↺ ${LBL.reintentar}</button>
         `;

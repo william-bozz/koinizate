@@ -4,6 +4,7 @@ namespace Koinizate\Controllers;
 use Koinizate\Core\Auth;
 use Koinizate\Core\Database;
 use Koinizate\Core\Response;
+use Koinizate\Core\LogroChecker;
 
 class EjercicioController {
 
@@ -236,18 +237,22 @@ class EjercicioController {
             }
         }
 
+        // Verificar y desbloquear logros
+        $logros_nuevos = LogroChecker::verificar($user['id']);
+
         Response::ok([
-            'xp'          => $xp,
-            'obolos'      => $obolos,
-            'nivel'       => $exp['nivel'] ?? 1,
-            'xp_total'    => $exp['xp_total'] ?? 0,
-            'racha'       => $racha['racha_actual'] ?? 0,
-            'palabras'    => $palabras,
-            'posicion'    => $mi_pos,
-            'arriba'      => $arriba,
-            'abajo'       => $abajo,
-            'puntos'      => $puntos,
-            'total'       => $total,
+            'xp'           => $xp,
+            'obolos'       => $obolos,
+            'nivel'        => $exp['nivel'] ?? 1,
+            'xp_total'     => $exp['xp_total'] ?? 0,
+            'racha'        => $racha['racha_actual'] ?? 0,
+            'palabras'     => $palabras,
+            'posicion'     => $mi_pos,
+            'arriba'       => $arriba,
+            'abajo'        => $abajo,
+            'puntos'       => $puntos,
+            'total'        => $total,
+            'logros_nuevos'=> $logros_nuevos,
         ]);
     }
 
