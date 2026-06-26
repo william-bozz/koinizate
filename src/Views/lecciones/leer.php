@@ -176,8 +176,8 @@ nav{background:var(--egeo);padding:0 2rem;height:56px;display:flex;align-items:c
   </div>
 
   <!-- Columna derecha: panel de palabra -->
-  <div class="panel-lateral"></div>
-    </div>
+  <!-- Columna derecha: panel de palabra -->
+  <div class="panel-lateral">
 
     <div class="palabra-card" id="palabra-card">
       <div class="palabra-card-vacia" id="card-vacia">
