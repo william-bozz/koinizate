@@ -23,3 +23,6 @@ $router->post('/leccion/marcar-leido',  [LeccionController::class,   'marcarLeid
 $router->get('/ejercicios/{slug}',      [EjercicioController::class, 'index']);
 $router->post('/ejercicio/verificar',   [EjercicioController::class, 'verificar']);
 $router->post('/ejercicio/completar',   [EjercicioController::class, 'completar']);
+
+use Koinizate\Controllers\TiendaController;
+$router->post('/tienda/comprar', [TiendaController::class, 'comprar']);

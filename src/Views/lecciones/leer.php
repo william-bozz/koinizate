@@ -252,28 +252,7 @@ function reproducirAudio() {
 }
 
 function completarLeccion() {
-  const btn = document.getElementById('btn-completar');
-  btn.disabled = true;
-  btn.textContent = '<?= $lbl["cargando"] ?>';
-
-  fetch('/leccion/marcar-leido', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-    body: 'capitulo_id=' + CAPITULO_ID
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.success && data.data.redirect) {
-      window.location.href = data.data.redirect;
-    } else {
-      btn.disabled = false;
-      btn.textContent = '<?= $lbl["continuar"] ?> →';
-    }
-  })
-  .catch(() => {
-    btn.disabled = false;
-    btn.textContent = '<?= $lbl["continuar"] ?> →';
-  });
+  window.location.href = '/ejercicios/<?= $capitulo["slug"] ?>';
 }
 </script>
 </body>

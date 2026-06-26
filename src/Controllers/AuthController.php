@@ -7,7 +7,7 @@ use Koinizate\Core\Response;
 class AuthController {
 
     public function loginForm(): void {
-        if (Auth::check()) Response::redirect('/cursos');
+        if (Auth::check()) Response::redirect('/dashboard');
         require __DIR__ . '/../Views/auth/login.php';
     }
 
@@ -27,11 +27,11 @@ class AuthController {
             Response::redirect('/login');
         }
 
-        Response::redirect('/cursos');
+        Response::redirect('/dashboard');
     }
 
     public function registerForm(): void {
-        if (Auth::check()) Response::redirect('/cursos');
+        if (Auth::check()) Response::redirect('/dashboard');
         require __DIR__ . '/../Views/auth/registro.php';
     }
 
@@ -72,7 +72,7 @@ class AuthController {
             Response::redirect('/registro');
         }
 
-        Response::redirect('/cursos');
+        Response::redirect('/dashboard');
     }
 
     public function logout(): void {
