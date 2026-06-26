@@ -6,6 +6,8 @@ use Koinizate\Controllers\DashboardController;
 use Koinizate\Controllers\CursoController;
 use Koinizate\Controllers\LeccionController;
 use Koinizate\Controllers\EjercicioController;
+use Koinizate\Controllers\TiendaController;
+use Koinizate\Controllers\RankingController;
 
 /** @var Router $router */
 
@@ -23,6 +25,5 @@ $router->post('/leccion/marcar-leido',  [LeccionController::class,   'marcarLeid
 $router->get('/ejercicios/{slug}',      [EjercicioController::class, 'index']);
 $router->post('/ejercicio/verificar',   [EjercicioController::class, 'verificar']);
 $router->post('/ejercicio/completar',   [EjercicioController::class, 'completar']);
-
-use Koinizate\Controllers\TiendaController;
-$router->post('/tienda/comprar', [TiendaController::class, 'comprar']);
+$router->post('/tienda/comprar',        [TiendaController::class,    'comprar']);
+$router->get('/ranking',                [RankingController::class,   'index']);

@@ -214,6 +214,8 @@ nav{background:var(--egeo);padding:0 2rem;height:56px;display:flex;align-items:c
   <a href="/" class="nav-logo">Κοινίζατε</a>
   <div class="nav-right">
     <span class="nav-obolos">⊙ <?= number_format($obolos) ?></span>
+    <a href="/ranking" class="nav-link">Ranking</a>
+    <a href="/ranking" class="nav-link"><?= $idioma==='es'?'Ranking':'Ranking' ?></a>
     <a href="/cursos" class="nav-link"><?= $idioma==='es'?'Cursos':($idioma==='en'?'Courses':($idioma==='pt'?'Cursos':'Cours')) ?></a>
     <a href="/logout" class="nav-link"><?= $idioma==='es'?'Salir':($idioma==='en'?'Sign out':($idioma==='pt'?'Sair':'Quitter')) ?></a>
   </div>
